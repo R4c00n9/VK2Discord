@@ -1,0 +1,22 @@
+{
+	"clusters": [
+		{
+			"vk": {
+				"token": "Токен от вашей страницы или группы ВКонтакте",
+				"group_id": "club(id) или специальная ссылка, например bolotoboli",
+				"keywords": [],
+				"filter": true,
+				"longpoll": false,
+				"interval": 30
+			},
+			"discord": {
+				"webhook_urls": [
+					"ссылка на вебхук"
+				],
+				"bot_name": "VK2DISCORD",
+				"color": "#aabbcc"
+			}
+		}
+	],
+	"version_dont_modify_me": 1
+}
