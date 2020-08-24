@@ -7,13 +7,6 @@ import { Keywords } from "./Keywords.mjs";
 
 import news from "../news.json";
 
-let date_ob = new Date();
-let day = ("0" + date_ob.getDate()).slice(-2);
-let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-let year = date_ob.getFullYear();
-let hours = date_ob.getHours();
-let minutes = ("0" + date_ob.getMinutes()).slice(-2);
-
 export class Sender {
 
     constructor(config) {
@@ -47,6 +40,13 @@ export class Sender {
             !(news[group_id] && news[group_id].published.includes(date)) &&
             new Keywords(keywords).check(payload.text)
         ) { // Проверяем что пост не был опубликован ранее и соответствует ключевым словам
+
+	let date_ob = new Date();
+	let day = ("0" + date_ob.getDate()).slice(-2);
+	let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+	let year = date_ob.getFullYear();
+	let hours = date_ob.getHours();
+	let minutes = ("0" + date_ob.getMinutes()).slice(-2);
 	console.log("[!] Пост найден и должен быть опубликован " + day + "/" + month + "/" + year + " в " + hours + ":" + minutes);
             if (longpoll && filter && payload.owner_id !== payload.from_id) {
                 return;
